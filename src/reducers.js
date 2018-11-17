@@ -23,6 +23,9 @@ export const state = (state = initialState, action) => {
             let s = snake(state.snake, action)
             const newBlock = s[s.length - 1]
             let isGameOver = state.isGameOver || s.slice(0, s.length - 1).find((v) => v.x === newBlock.x && v.y === newBlock.y) !== undefined
+            if (isGameOver) {
+                s[s.length - 1].isBroken = true
+            }
             let newFoodX = { ...state.food }
             if (newBlock.x === state.food.x && newBlock.y === state.food.y) {
                 s = [state.snake[0], ...s]
