@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import store from '../store'
 import { restart, move, setDirection } from '../actions'
 
-
-
 class App extends Component {
   componentDidMount() {
     document.addEventListener('keydown', (event) => {
