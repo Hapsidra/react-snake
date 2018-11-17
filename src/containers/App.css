@@ -1,0 +1,50 @@
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.gameOver {
+  text-align: center;
+}
+
+p.mapLine {
+  margin: 0 auto;
+  padding: 0;
+  height: 22px;
+  width: 550px;
+  background-color: black
+}
+
+b {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 20px;
+  width: 20px;
+  margin: 1px;
+  float: left;
+}
+
+b.c {
+  background-color: green;
+}
+
+b.f {
+  background-color: red;
+}
+
+button {
+  padding: 8px;
+}
+
+
+.scorePanel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scorePanel p {
+  margin: 0;
+  padding: 0;
+}
