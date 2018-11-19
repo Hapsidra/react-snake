@@ -34,9 +34,30 @@ export const state = (state = initialState, action) => {
                 highScore: Math.max(state.highScore, s.length)
             }
         case actions.SET_DIRECTION: {
+            const newDirection = direction(state.direction, action)
+            let nextBlock = {...state.snake[state.snake.length - 1]}
+            switch (newDirection) {
+                case directions.DOWN:
+                    nextBlock.y++;
+                    break
+                case directions.UP:
+                    nextBlock.y--;
+                    break
+                case directions.LEFT:
+                    nextBlock.x--;
+                    break
+                case directions.RIGTH:
+                    nextBlock.x++;
+                    break
+                default:
+            }
+            const prevBlock = {...state.snake[state.snake.length - 2]}
+            if (nextBlock.x === prevBlock.x && nextBlock.y === prevBlock.y) {
+                return {...state}
+            }
             return {
                 ...state,
-                direction: direction(state.direction, action)
+                direction: newDirection
             }
         }
         case actions.RESTART: { 
