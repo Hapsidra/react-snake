@@ -26,10 +26,11 @@ class App extends Component {
       }
       store.dispatch(setDirection(newDirection))
     })
-
-    this.interval = setInterval(() => {
-      store.dispatch(move(store.getState().direction))
-    }, 150)
+    //if (!store.getState().isGameOver) {
+      this.interval = setInterval(() => {
+        store.dispatch(move(store.getState().direction))
+      }, 150)
+    //}
 
     store.subscribe(()=> {
       if (store.getState().isGameOver) {
