@@ -10,6 +10,7 @@ function getRndInteger(min, max) {
 export const state = (state = initialState, action) => {
     switch (action.type) {
         case actions.MOVE:
+            if (state.isGameOver) return state
             let s = snake(state.snake, action)
             const newBlock = s[s.length - 1]
             let isGameOver = state.isGameOver || s.slice(0, s.length - 1).find((v) => v.x === newBlock.x && v.y === newBlock.y) !== undefined
@@ -34,6 +35,7 @@ export const state = (state = initialState, action) => {
                 highScore: Math.max(state.highScore, s.length)
             }
         case actions.SET_DIRECTION: {
+            if (state.isGameOver) return state
             const newDirection = direction(state.direction, action)
             let nextBlock = {...state.snake[state.snake.length - 1]}
             switch (newDirection) {
